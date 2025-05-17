@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class RoomController extends Controller
 {
      public function index(){
-        if (auth()->user()->roles !== 'admin') {
+        if (auth()->user()->roles !== 'admin'&& auth()->user()->roles !== 'technician') {
             return redirect()->back()->with('error', 'Access denied. Admins only.');
 
         }

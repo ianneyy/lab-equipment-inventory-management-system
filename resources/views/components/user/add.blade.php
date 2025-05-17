@@ -3,11 +3,11 @@
         @csrf
     <div class="flex items-center justify-between p-6">
         <div class="flex flex-col">
-            <h2 class="text-3xl font-semibold text-gray-200">Add New User</h2>
-            <h4 class="text-gray-400">Manage system users and their access permissions</h4>
+            <h2 class="text-lg lg:text-3xl font-semibold text-gray-200">Add New User</h2>
+            <h4 class="lg:text-base text-sm text-gray-400">Manage system users and their access permissions</h4>
         </div>
 
-        <button @click="tab = 'list'" class="border border-gray-900 hover:border-indigo-900 px-4 py-2 flex items-center gap-3 rounded-md text-gray-50">
+        <button type="button" @click="tab = 'list'" class="border border-gray-900 hover:border-indigo-900 px-4 py-2 flex items-center gap-3 rounded-md text-gray-50">
             <x-heroicon-s-arrow-small-left class="h-4 w-4" />
             Back
         </button>
@@ -15,11 +15,11 @@
 
     <div class="p-6 bg-gray-800 border-2 border-gray-700 h-auto mt-4 rounded-lg">
 
-        <h2 class="text-2xl font-semibold text-gray-200">User Information</h2>
-        <h4 class="text-gray-400 mb-6">Add a new user to the system. All users will be able to log in and access the system based on their role.</h4>
+        <h2 class="text-md lg:text-2xl font-semibold text-gray-200">User Information</h2>
+        <h4 class="lg:text-base text-sm text-gray-400 mb-6">Add a new user to the system. All users will be able to log in and access the system based on their role.</h4>
                 <div class="flex flex-col gap-6">
 
-                    <div class="flex w-full gap-6 justify-between">
+                    <div class="flex flex-col lg:flex-row w-full gap-6 justify-between">
 
                         <div class="w-full">
                             <label class="fieldset-legend text-gray-200 text-sm">Full Name</label>
@@ -34,7 +34,7 @@
                         </div>
                     </div>
 
-                    <div class="flex w-full gap-6 justify-between">
+                    <div class="flex flex-col lg:flex-row w-full gap-6 justify-between">
 
                         <div class="w-full">
                             <label class="fieldset-legend text-gray-200 text-sm">Password</label>

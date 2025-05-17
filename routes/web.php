@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EquipmentController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 // Route::get('/dashboard', function () {
@@ -56,6 +56,7 @@ Route::post('/borrowing/request', [RequestController::class, 'request'])->middle
 Route::post('/submit-issue', [DashboardController::class, 'issue'])->middleware(['auth', 'verified'])->name('submit-issue');
 Route::post('/add-user', [UserController::class, 'create'])->middleware(['auth', 'verified'])->name('add-user');
 Route::post('/assign-technician/{id}', [MaintenanceController::class, 'assign'])->middleware(['auth', 'verified'])->name('assign.technician');
+Route::post('/accept/{id}', [DashboardController::class, 'accept'])->middleware(['auth', 'verified']);
 
 
 // Route::get('/users/add', function () {

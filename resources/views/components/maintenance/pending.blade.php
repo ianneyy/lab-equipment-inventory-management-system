@@ -14,11 +14,11 @@
         <div class=" flex items-center">
         <div class="dropdown dropdown-end">
             <div tabindex="0" role="button">
-                <button class="bg-indigo-400 px-4 py-2 text-gray-100 rounded-lg text-sm hover:bg-indigo-600">Assign Technician</button>
+                <button class="bg-indigo-400 px-4 py-2 text-gray-100 rounded-lg text-sm hover:bg-indigo-600 ">Assign Technician</button>
             </div>
             <ul
                 tabindex="0"
-                class="menu menu-md dropdown-content bg-gray-700 text-gray-200 rounded-box z-1 mt-3 w-52 p-2 shadow mb-2">
+                class="menu menu-md dropdown-content bg-gray-700 text-gray-200 rounded-box z-99 mt-3 w-52 p-2 shadow mb-2">
                  @foreach ($technician as $tech)
                 <li>
                     <form method="POST" action="{{ route('assign.technician',$item->id) }}">

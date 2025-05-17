@@ -3,11 +3,11 @@
     <h4 class="text-gray-400 mb-6">Record of your past equipment borrowings</h4>
     @foreach ($returnedBorrowing as $returned)
 
-    <div class="w-full flex justify-between gap-4 border-2 border-gray-700 rounded-lg mt-6 p-4">
+    <div class="w-full flex flex-col sm:flex-row justify-between gap-4 border-2 border-gray-700 rounded-lg mt-6 p-4">
         <div class="flex flex-col">
             <span class="text-lg text-gray-200 font-semibold">{{ $returned->equipment ?? "Dell" }}</span>
             <span class="mb-2 text-gray-400">Request ID: {{ $returned->id ?? "1" }}</span>
-            <div class="flex gap-4">
+            <div class="flex gap-4 flex-col sm:flex-row">
                 <div class="flex flex-col text-sm">
                     <span class="text-gray-300">Return Date: {{ $returned->return_date ?? " 2023-05-20" }}</span>
                     <span class="text-gray-300">Borrow Date: {{ $returned->borrow_date ?? "2023-05-20" }}</span>

@@ -94,4 +94,6 @@ class MaintenanceController extends Controller
 
         return back()->with('success', 'Technician assigned successfully.');
     }
+
+    
 }

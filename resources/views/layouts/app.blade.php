@@ -20,6 +20,8 @@
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <script type="module" src="https://unpkg.com/cally"></script>
         <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <!-- Scripts -->
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     </head>

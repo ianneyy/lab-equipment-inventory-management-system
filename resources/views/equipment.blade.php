@@ -2,21 +2,21 @@
 
 @include('layouts.sidebar')
 
-    <div class="py-12 px-10 flex-1">
+    <div class="py-12 px-2 lg:px-10 flex-1">
         <div class="w-full px-4 ">
          <div class="bg-gray-900 overflow-hidden  shadow-sm sm:rounded-lg">
             <div class="flex items-center justify-between">
                 <div class="flex flex-col">
-                    <h2 class="text-3xl font-semibold text-gray-200">Equipment Inventory</h2>
-                    <h4 class="text-gray-400">Manage and track all equipment in the system</h4>
+                    <h2 class="text-lg lg:text-3xl font-semibold text-gray-200">Equipment Inventory</h2>
+                    <h4 class="text-sm lg:text-base text-gray-400">Manage and track all equipment in the system</h4>
                 </div>
-                <button class="bg-indigo-400 px-4 py-2 flex items-center gap-3 rounded-md text-gray-50">
+                <button class="bg-indigo-400 px-2 py-1 lg:px-4 lg:py-2  flex items-center gap-3 rounded-md text-gray-50 text-xs lg:text-lg ">
                     <x-heroicon-o-plus class="h-4 w-4"/>
                     Add Equipment</button>
             </div>
 
             <div class="p-6 bg-gray-800 border-2 border-gray-700 h-auto mt-10 rounded-lg">
-                <h2 class="text-2xl font-semibold text-gray-200 mb-6">Equipment List</h2>
+                <h2 class="text-lg lg:text-2xl font-semibold text-gray-200 mb-6">Equipment List</h2>
                 <input type="text" id="quickFilterInput" placeholder="Search by ID, name, or serial number..." class="mb-4 p-2 rounded bg-gray-800 text-gray-300 border border-gray-700 w-3/4">
                 <div id="myGrid" class="ag-theme-alpine bg-gray-900"></div>
             </div>

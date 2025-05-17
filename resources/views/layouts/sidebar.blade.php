@@ -4,10 +4,11 @@
 
   <!-- Sidebar -->
   <div id="sidebar" class="bg-gray-800 text-grey min-h-screen transition-all duration-300
-              w-16 overflow-hidden group" :class="{ 'w-64': document.getElementById('sidebar-toggle').checked }">
+            overflow-auto absolute sm:relative group z-99">
+
     <div class="flex items-center justify-between px-5 py-4">
       <span class="text-lg font-bold hidden group-[.w-64]:inline text-gray-300 ">{{ucwords(auth()->user()->roles)}}</span>
-      <label for="sidebar-toggle" class="cursor-pointer text-grey">
+      <label for="sidebar-toggle" class="cursor-pointer text-grey hidden sm:block">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-400" fill="none"
              viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -25,7 +26,10 @@
         <a href="{{ route('dashboard') }}" class="ml-3 hidden group-[.w-64]:inline text-gray-300">Dashboard</a>
       </li>
 
-      @if (auth()->check() && auth()->user()->roles === 'admin')
+
+      @if (auth()->check() && auth()->user()->roles === 'admin' || auth()->check() && auth()->user()->roles === 'technician')
+
+      
 
       <li onclick="window.location='{{ url('/equipment') }}'"
        class="flex items-center  px-5 py-3 hover:bg-gray-900 cursor-pointer
@@ -42,6 +46,8 @@
         <a href="{{ route('room') }}" class="ml-3 hidden group-[.w-64]:inline text-gray-300">Rooms & Labs</a>
       </li>
 
+      @endif
+      @if (auth()->check() && auth()->user()->roles === 'admin')
       
       <li onclick="window.location='{{ url('/borrowing') }}'"
        class="flex items-center  px-5 py-3 hover:bg-gray-900 cursor-pointer
@@ -79,7 +85,7 @@
 
       @endif
 
-      @if (auth()->check() && auth()->user()->roles === 'student')
+      @if (auth()->check() && auth()->user()->roles === 'student' || auth()->check() && auth()->user()->roles === 'faculty/staff')
       <li onclick="window.location='{{ url('/request') }}'"
       class="flex items-center  px-5 py-3 hover:bg-gray-900 cursor-pointer
       {{ Request::is('request') ? 'bg-gray-900' : 'hover:bg-gray-900' }}">
@@ -102,15 +108,22 @@ document.addEventListener('DOMContentLoaded', function() {
   const sidebar = document.getElementById('sidebar');
   
   sidebarToggle.addEventListener('change', function() {
-    if (this.checked) {
-      sidebar.classList.add('w-64');
-      sidebar.classList.remove('w-16');
-      sidebar.classList.remove('justify-center');
+  const isSmallScreen = window.innerWidth < 640;
 
+    if (this.checked) {
+    sidebar.classList.add('w-64');
+    sidebar.classList.remove('w-16');
+    sidebar.classList.remove('w-0');
+  } else {
+    sidebar.classList.remove('w-64');
+    if (isSmallScreen) {
+      sidebar.classList.add('w-0');
+      sidebar.classList.remove('w-16');
     } else {
-      sidebar.classList.remove('w-64');
       sidebar.classList.add('w-16');
+      sidebar.classList.remove('w-0');
     }
+  }
   });
 });
 </script>

@@ -3,7 +3,7 @@
 @include('layouts.sidebar')
 
 
-    <div class="py-12 px-10 flex-1">
+    <div class="py-12 px-2 lg:px-10 flex-1">
         <div class="w-full px-4 ">
             
          <div class="bg-gray-900 overflow-hidden  shadow-sm sm:rounded-lg">

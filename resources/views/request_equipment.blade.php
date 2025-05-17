@@ -2,14 +2,14 @@
 
     @include('layouts.sidebar')
     
-        <div class="py-12 px-10 flex-1">
+        <div class="py-12 px-2 lg:px-10 flex-1">
             <div class="w-full px-4 ">
              <div class="bg-gray-900 overflow-hidden  shadow-sm sm:rounded-lg">
                 <div class="flex items-center justify-between mb-6">
                     <div class="flex flex-col">
-                        <h2 class="text-3xl font-semibold text-gray-200">
+                        <h2 class=" font-semibold text-gray-200 text-xl lg:text-3xl">
                             Request Equipment Borrowing</h2>
-                        <h4 class="text-gray-400">Submit a request to borrow equipment for your academic needs</h4>
+                        <h4 class="text-gray-400 text-sm lg:text-lg">Submit a request to borrow equipment for your academic needs</h4>
                     </div>
                     
                 </div>
@@ -30,32 +30,51 @@
                             <span class="text-sm text-gray-500">Choose the equipment you need</span>
                         </div>
                     </div>
-                    <div class="flex gap-4">
-                        @if(isset($selectedEquipment)|| isset($borrowedEquipment))
-
-                        <div class="flex text-center justify-center items-center bg-indigo-500 rounded-full h-10 w-10 text-gray-200">2</div>
-                        @else
-                        <div class="flex text-center justify-center items-center border-2 border-indigo-500 rounded-full h-10 w-10 text-gray-200">2</div>
-                        @endif
+                    @if(isset($selectedEquipment)|| isset($borrowedEquipment))
+                    <div class="flex gap-4 ">
+                        <div class="flex text-center justify-center items-center bg-indigo-500 rounded-full h-10 w-10 text-gray-200 ">2</div>
+                        {{-- <div class="flex text-center justify-center items-center border-2 border-indigo-500 rounded-full h-10 w-10 text-gray-200 ">2</div> --}}
 
                         <div class="flex flex-col">
                             <span class="text-sm text-gray-300">Borrowing Details</span>
                             <span class="text-sm text-gray-500">Provide borrowing information</span>
                         </div>
                     </div>
-                    <div class="flex gap-4">
-                        @if(isset($borrowedEquipment))
+
+                    @else
+                        <div class="hidden lg:flex gap-4 ">
+                            <div class="flex text-center justify-center items-center border-2 border-indigo-500 rounded-full h-10 w-10 text-gray-200 ">2</div>
+
+                        <div class="flex flex-col">
+                            <span class="text-sm text-gray-300">Borrowing Details</span>
+                            <span class="text-sm text-gray-500">Provide borrowing information</span>
+                        </div>
+                    </div>
+                    @endif
+
+                    @if(isset($borrowedEquipment))
+
+                    <div class="flex gap-4 flex-col sm:flex-row">
                         <div class="flex text-center justify-center items-center bg-indigo-500 rounded-full h-10 w-10 text-gray-200">3</div>
-                        @else
-                        <div class="flex text-center justify-center items-center border-2 border-indigo-500 rounded-full h-10 w-10 text-gray-200">3</div>
-                        @endif
+
                         <div class="flex flex-col">
                             <span class="text-sm text-gray-300">Review & Submit</span>
                             <span class="text-sm text-gray-500">Confirm your request</span>
                         </div>
                     </div>
+
+                        @else
+                        <div class="hidden lg:flex gap-4 flex-col sm:flex-row">
+                        <div class="flex text-center justify-center items-center border-2 border-indigo-500 rounded-full h-10 w-10 text-gray-200">3</div>
+                        <div class="flex flex-col">
+                            <span class="text-sm text-gray-300">Review & Submit</span>
+                            <span class="text-sm text-gray-500">Confirm your request</span>
+                        </div>
+                    </div>
+                        @endif
+
                 </div>
-                <div class="p-6 bg-gray-800 border-2 border-gray-700 h-auto mt-10 rounded-lg">
+                <div class="p-6 bg-gray-800 border-2 border-gray-700 h-auto mt-10 rounded-lg ">
                     @if(!isset($selectedEquipment) && !isset($borrowedEquipment))
                     <h2 class="text-2xl font-semibold text-gray-200">Select Equipment</h2>
                     <h4 class="text-gray-400 mb-6">Browse and select the equipment you want to borrow</h4>
@@ -81,7 +100,7 @@
 
                             <div class="dropdown dropdown-bottom dropdown-end ">
                                 <div tabindex="0" role="button" class="btn bg-gray-800 shadow-none text-sm border-2 border-gray-700  w-50 text-gray-300">All Categories <x-eva-arrow-ios-downward-outline class="ml-2 h-5 w-5 shrink-0 text-indigo-400" /> </div>   
-                                <ul tabindex="0" class="dropdown-content menu bg-gray-500 rounded-box z-1 w-52 p-2 shadow-sm">
+                                <ul tabindex="0" class="dropdown-content menu bg-gray-500 mt-2 text-gray-200 border border-gray-400 rounded-box z-1 w-52 p-2 shadow-sm">
                                 <li><a>Item 1</a></li>
                                 <li><a>Item 2</a></li>
                                 </ul>

@@ -2,11 +2,11 @@
     <h2 class="text-2xl font-semibold text-gray-200">Active Borrowings</h2>
     <h4 class="text-gray-400 mb-6">Equipment currently in your possession</h4>
     @foreach ($activeBorrowing as $active)
-    <div class="w-full flex justify-between gap-4 border-2 border-gray-700 rounded-lg mt-6 p-4">
+    <div class="w-full flex flex-col sm:flex-row justify-between gap-4 border-2 border-gray-700 rounded-lg mt-6 p-4">
         <div class="flex flex-col">
             <span class="text-lg text-gray-200 font-semibold">{{ $active->equipment ?? "Dell" }}</span>
             <span class="mb-2 text-gray-400">Request ID: {{ $active->id ?? "1" }}</span>
-            <div class="flex gap-4">
+            <div class="flex gap-4 flex-col sm:flex-row" >
                 <div class="flex flex-col  text-sm">
                     <span class="text-gray-300">Return Date: {{ $active->return_date ?? "2023-05-20" }}</span>
                     <span class="text-gray-300">Borrow Date: {{ $active->borrowed_date ?? "2023-05-20" }}</span>
@@ -20,7 +20,7 @@
                 <span class="font-bold text-indigo-500">{{$remainingDays}}</span>
             </div>
         </div>
-        <div class="flex items-center ">
+        <div class="flex items-center justify-end sm:justify-start">
             <button 
                 onclick="openModal(this)"
                 data-equipment="{{ $active->equipment }}"
@@ -72,19 +72,17 @@
       </div>
 
       <div class="w-full flex justify-between mt-10"> 
-        <div class="modal-action">
             <!-- Back Button to Close the Dialog -->
-            <button type="button" class="btn text-gray-200 rounded-lg px-6 py-2 text-sm hover:bg-indigo-400 shadow-none" onclick="closeModal()">Back</button>
-        </div>
+            <button type="button" class="btn text-gray-200  rounded-lg px-6 py-2 text-sm hover:bg-indigo-400 shadow-none" onclick="closeModal()">Back</button>
         <button 
           x-bind:disabled="loading"
           type="submit"
-          class="bg-indigo-500 text-gray-200 rounded-lg px-4 text-sm hover:bg-indigo-400 flex items-center gap-2">
+          class="bg-indigo-500 text-gray-200 rounded-lg px-4 py-2 text-sm hover:bg-indigo-400 flex items-center gap-2">
           <svg x-show="loading" class="w-4 h-4 animate-spin text-white" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
           </svg>
-          <span x-show="!loading">Submit Repair Issue</span>
+          <span x-cloak ="!loading">Submit Repair Issue</span>
           <span x-show="loading">Processing...</span>
         </button>
       </div>
